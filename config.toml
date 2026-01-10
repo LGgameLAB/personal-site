@@ -1,0 +1,34 @@
+# The URL the site will be built for
+base_url = "https://lukegonsalves.com"
+
+# Theme
+theme = "terminus"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+title = "Luke Gonsalves"
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+[extra]
+# Put all your custom variables here
+
+### Terminus
+main_menu = [
+    { name = "about", url = "" },
+    { name = "projects", url = "/projects", trailing_slash = true },
+    { name = "blog", url = "/blog", trailing_slash = true },
+    # { name = "external link", url = "https://github.com", new_tab = true },
+]
+
+socials = [
+    { name = "email", url = "mailto:lukegonsalves@berkeley.edu" },
+    { name = "github", url = "https://github.com/LGgameLAB" },
+]
