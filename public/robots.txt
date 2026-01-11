@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: ${BASE_URL}/sitemap.xml
+Sitemap: https://lggamelab.github.io/sitemap.xml
