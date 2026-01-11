@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "${BASE_URL}"
+base_url = "https://lggamelab.github.io"
 
 # Theme
 theme = "terminus"
@@ -7,7 +7,7 @@ theme = "terminus"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-title = "Luke Gonsalves"
+title = "Luke Gonsalves "
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
@@ -21,13 +21,16 @@ highlight_code = true
 # Put all your custom variables here
 
 ### Terminus
+# Supported color schemes: "terminus", "tokyo-night", "solarized-dark", "nord",
+# "one-dark", "gruvbox-dark", "oled-abyss", "solar-flare", "catppuccin-latte",
+# "catppuccin-frappe", "catppuccin-macchiato", "catppuccin-mocha".
+color_scheme = "terminus"
 main_menu = [
     { name = "about", url = "" },
     { name = "projects", url = "/projects", trailing_slash = true },
     { name = "blog", url = "/blog", trailing_slash = true },
     # { name = "external link", url = "https://github.com", new_tab = true },
 ]
-
 socials = [
     { name = "email", url = "mailto:lukegonsalves@berkeley.edu" },
     { name = "github", url = "https://github.com/LGgameLAB" },
