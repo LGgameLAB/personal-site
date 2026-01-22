@@ -57,8 +57,8 @@ Here is the Sony Trinitron that I use when playing WII or NES
 In tangent to acquiring the CRT Monitor, I also found and restored this Model M 
 keyboard known for it's buckling spring key action. It is super loud!
 
-Image of Model M
+<img src="/images/modelm.jpg">
 
-### Code
+<!-- ### Code -->
 
 

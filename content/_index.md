@@ -10,15 +10,11 @@ max_posts = 5
 <div  class="framed">
 <h1> Hello 👋🏼</h1>
 <img src="/images/luke_in_the_bay.jpeg" alt="Description" style="float:right;width:20%;margin-left=10px;">
-My name is Luke and I am an active student at UC Berkeley studying Applied Mathematics.
+My name is Luke and I am an active student at UC Berkeley studying Applied Mathematics 
+originally from Folsom, California. I'm passionate about technology, computer science, 
+music, film, cars among many things.
 
-I'm passionate about technology, computer science, music, film, cars among many things.
-I love talking about anything nerdy.
-
-blah blahblah
-blah blahblah
-blah blahblah
-blah blahblah
+Feel free to reach out to me (my socials are at the bottom) and check out my blog!
 
 Below are a few of the projects I've worked on 
 </div>
@@ -34,8 +30,11 @@ Below are a few of the projects I've worked on
         <a href="https://sawansri.com/">
             <img src="/images/sawansri.png">
         </a>
-        <a href="https://felix.com/">
+        <a href="https://ibuprofenbunny.neocities.org/">
             <img src="/images/felix.png">
+        </a>
+        <a href="https://joewang.me/">
+            <img src="/images/joe.png">
         </a>
     </div>
 </div>

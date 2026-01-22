@@ -8,6 +8,6 @@ max_posts = 3
 +++
 
 
-Not all of my experience can be wrapped up in coding so here are a few random things I've been up to
+Here are a few things I've been up to
 
 
