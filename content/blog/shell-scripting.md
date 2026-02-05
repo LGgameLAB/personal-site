@@ -3,10 +3,11 @@ title="Shell Scripting Intro"
 date=2026-02-01
 +++
 
+<img src="/images/ocf-box.png" style="width:20%">
 The OCF Decal presents
-<img src="/images/ocf-box.png">
+<img src="/images/shell-title.jpg">
 
-# Shell Scripting
+<!-- # Shell Scripting -->
 
 What is the shell? Taking from AI:
 
@@ -25,7 +26,9 @@ I am still learning. To quote Jaysa:
 "If you're really dedicated to learning, try to learn a new command each day. Use that command whenever you get the chance until it feels natural.
 The more commands that you know, the cooler you'll look to the guy behind you while you're taking notes in class."
 
-<img src="/images/vim-meme.jpg">
+<center>
+    <img src="/images/vim-meme.jpg" style="width:70%">
+</center>
 
 ## What are shell scripts used for? 
 
@@ -46,8 +49,52 @@ The terminal can be used to directly run shell scripts
 
 
 
-
 ## Mad libs
 
 Today I'm going to make a little mad libs shell script with you guys
+
+First we'll make a file and in it we can write the following code
+
+```bash
+read -p "Enter a noun: " noun
+printf "There once was a $noun"
+```
+
+The first line reads user input and saves it to the "variable" noun. The `-p` flag 
+allows us to write a prompt for the user. `printf` lets us write output to the user.
+Pretty Neat!
+
+Lets make the Mad Lib more interesting
+
+More code more code
+
+
+Cool cool no we can write a story and have it output
+
+
+### Randomizing Mad libs
+
+We can use the `shuf` command to randomize lists of items. For example
+`ls | shuf` randomizes the directory.
+
+We can combine this with a long list of nouns to create a random mad lib
+
+* [Nouns](https://gist.githubusercontent.com/trag1c/f74b2ab3589bc4ce5706f934616f6195/raw/5aa7de70fc83664017cb97dd02cbf6dc76b9e4a3/nouns.txt)
+* [Verbs](https://gist.githubusercontent.com/trag1c/f74b2ab3589bc4ce5706f934616f6195/raw/5aa7de70fc83664017cb97dd02cbf6dc76b9e4a3/nouns.txt)
+```
+curl --silent https://gist.githubusercontent.com/trag1c/f74b2ab3589bc4ce5706f934616f6195/raw/5aa7de70fc83664017cb97dd02cbf6dc76b9e4a3/nouns.txt | shuf -n 1
+```
+
+### Saving mad libs to file
+
+
+We can prompt the user to save the mad lib to file.
+
+``
+
+The `>` operator outputs to a file, overwriting anything if present.
+The `>>` operator appends to the end of a file.
+
+### Customization options
+
 
