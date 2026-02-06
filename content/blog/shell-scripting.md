@@ -9,13 +9,7 @@ The OCF Decal presents
 
 <!-- # Shell Scripting -->
 
-What is the shell? Taking from AI:
 
-"A shell is software program that acts as an interface between a user and the operating system's core (kernel)"
-
-So shell scripting can be seen as code we write to interface with our computer. Here is an example
-
-<img src="/images/bash-cover.png">
 
 ## Are you using vim?
 
@@ -27,12 +21,35 @@ I am still learning. To quote Jaysa:
 The more commands that you know, the cooler you'll look to the guy behind you while you're taking notes in class."
 
 <center>
-    <img src="/images/vim-meme.jpg" style="width:70%">
+    <img src="/images/vim-meme.jpg" style="width:60%">
 </center>
+
+If you are looking to improve your vim skills there is a [good article](https://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively/)
+on improving progressively. I do recommend installing vimtutor for the most interactive learning experience.
+
+## What is the shell? 
+
+A shell is software program that acts as an interface between a user and the operating system's core (kernel)
+So shell scripting can be seen as code we write to interface with our computer. Here is an example
+
+<img src="/images/bash-cover.png"  style="width:70%">
+
+This example was written in Bash which is an sh-compatible command language. But what does that mean?
+
+To make sure shell scripts work on a all UNIX operating systems, POSIX (Portable Operating System Interface) 
+sets a standard (IEEE Standard 1003.1) by which all operating systems must comply. This means the same command
+written to your default linux shell `sh` will always work. Nowadays there are modern shells such as Bash and Zsh
+which add their own features on top of `sh`. 
+
+
 
 ## What are shell scripts used for? 
 
-Shell scripts are used everywhere! They are super tools for automation and so much more
+Shell scripts are used everywhere! They are like the glue behind system administration responsible
+for all different types of automation. 
+
+Many times you will encounter shell commands embedded in configuration files to run certain tasks. However
+when tasks get more complicated, having a strong background in shell scripts becomes very useful
 
 Just the other day I installed a linux package called downgrade. It is actually a single shell (/bin/downgrade)
 
@@ -42,12 +59,10 @@ So far I've shown you complicated shell scripts but they can be super simple
 * Change backgrounds
 * Christmas Tree
 
-The terminal can be used to directly run shell scripts
-* echo
-* ls
-* pipe operator
-
-
+The terminal can be used to directly run shell commands
+* `echo`
+* `ls` (-a -l)
+* `grep`
 
 ## Mad libs
 
@@ -56,9 +71,14 @@ Today I'm going to make a little mad libs shell script with you guys
 First we'll make a file and in it we can write the following code
 
 ```bash
+#!/bin/bash
+
 read -p "Enter a noun: " noun
-printf "There once was a $noun"
+printf "There once was a %s" "$noun"
 ```
+
+The top of the file is the shebang and if we remember from earlier, this tells the computer which interpreter
+we should use which is important if we are using `zsh` or `bash` since the computer might default to `sh`.
 
 The first line reads user input and saves it to the "variable" noun. The `-p` flag 
 allows us to write a prompt for the user. `printf` lets us write output to the user.
@@ -66,10 +86,20 @@ Pretty Neat!
 
 Lets make the Mad Lib more interesting
 
-More code more code
+```bash
+read -p "Enter a noun: " noun
+read -p "Enter a verb (past tense): " verb
+read -p "Enter a location: " location 
+printf "There once was a %s. The %s %s in the %s." "$noun" "$noun" "$verb" "$location"
+```
 
+Notice, we added more `%s` to include more inputs to our f string. Cool cool no we can write a story and have it output to the user.
 
-Cool cool no we can write a story and have it output
+Notes:
+* It is important that `$noun` is in quotes 
+
+### Randomizing Mad libs
+
 
 
 ### Randomizing Mad libs
@@ -87,16 +117,63 @@ We can combine this with a long list of nouns to create a random mad lib
 curl --silent https://gist.githubusercontent.com/trag1c/f74b2ab3589bc4ce5706f934616f6195/raw/5aa7de70fc83664017cb97dd02cbf6dc76b9e4a3/nouns.txt | shuf -n 1
 ```
 
+What is happening here? Three main things at play
+* `curl`
+    * curl gets the information from the web which in this case is a long list of nouns
+    * `--silent` suppresses the output of grep so we just get the raw information. This is a flag on many commands
+* pipe operator `|`
+    * As we've seen above, the pipe sends the output of the first command into the second
+    * What happens when you run `ls | grep "filename"`
+* `shuf`
+    * Shuffles the list provided
+    * `-n 1` returns the first line of the list we just shuffled
+
+Now our Mad libs runs by itself and generates some pretty silly prompts. Fire!
+
+
 ### Saving mad libs to file
 
 
 We can prompt the user to save the mad lib to file.
 
-``
+```bash
+read -p "Would you like to save the file? (y/n): " yesno
+
+if [ "$yesno" = "y" ]; then
+    echo "Saving to file"
+    echo "$madlib" >> madlibs.txt
+else
+    echo "See ya!"
+fi
+```
+
+What exactly is happening here? Again we are using a read statement to get the user's input. A then we initiate an if statement
+to see if the user replies "y" or "n". 
+
+If the user replies yes then we save the madlib to a file
 
 The `>` operator outputs to a file, overwriting anything if present.
 The `>>` operator appends to the end of a file.
 
-### Customization options
+You could also do this with a case statement
+```bash
+case "$yesno" in
+  “yes”)
+    echo "Saving to file";;
+  “y”)
+    echo "Saving";;
+  *)
+    echo "See ya"
+esac
+```
+
+Notes
+* It is important to maintain spaces in your if statement brackets
+
+### Things to keep in mind
+
+If else and case statements
+The importants of quotes and spaces
+Read Error messages carefully
 
 
