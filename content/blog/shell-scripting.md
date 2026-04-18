@@ -13,7 +13,7 @@ The OCF Decal presents
 
 ## Are you using vim?
 
-For today's example I will be using VIM. Hopefully you guys have gotten a chance to look at VIM
+For today's examples I will be using VIM. Hopefully you guys have gotten a chance to look at VIM
 but maybe it is still confusing and that's okay. It took me 6 months to get decent at using vim and 
 I am still learning. To quote Jaysa:
 
@@ -31,17 +31,15 @@ on improving progressively. I do recommend installing vimtutor for the most inte
 
 A shell is software program that acts as an interface between a user and the operating system's core (kernel)
 So shell scripting can be seen as code we write to interface with our computer. Here is an example
-
-<img src="/images/bash-cover.png"  style="width:70%">
-
+<center>
+    <img src="/images/bash-cover.png"  style="width:70%">
+</center>
 This example was written in Bash which is an sh-compatible command language. But what does that mean?
 
 To make sure shell scripts work on a all UNIX operating systems, POSIX (Portable Operating System Interface) 
 sets a standard (IEEE Standard 1003.1) by which all operating systems must comply. This means the same command
-written to your default linux shell `sh` will always work. Nowadays there are modern shells such as Bash and Zsh
-which add their own features on top of `sh`. 
-
-
+written to your default linux shell `sh` will always work no matter what OS you are running. Nowadays there are
+modern shells such as Bash and Zsh which add their own features on top of `sh`. 
 
 ## What are shell scripts used for? 
 
@@ -51,12 +49,14 @@ for all different types of automation.
 Many times you will encounter shell commands embedded in configuration files to run certain tasks. However
 when tasks get more complicated, having a strong background in shell scripts becomes very useful
 
-Just the other day I installed a linux package called downgrade. It is actually a single shell (/bin/downgrade)
+Just the other day I installed a linux package called downgrade. It is actually a single shell script
+(/bin/downgrade)
 
 So far I've shown you complicated shell scripts but they can be super simple
 * Change monitors
 * Teleport around computer (edit files)
-* Change backgrounds
+    * rc files (run commands)
+* Change backgrounds randomly
 * Christmas Tree
 
 The terminal can be used to directly run shell commands
@@ -66,7 +66,7 @@ The terminal can be used to directly run shell commands
 
 ## Mad libs
 
-Today I'm going to make a little mad libs shell script with you guys
+Today I'm going to show you how to make a little mad libs shell script.
 
 First we'll make a file and in it we can write the following code
 
@@ -93,19 +93,15 @@ read -p "Enter a location: " location
 printf "There once was a %s. The %s %s in the %s." "$noun" "$noun" "$verb" "$location"
 ```
 
-Notice, we added more `%s` to include more inputs to our f string. Cool cool no we can write a story and have it output to the user.
+Notice, we added more `%s` to include more inputs to our f string. Cool cool now we can write a story and have it output to the user.
 
 Notes:
 * It is important that `$noun` is in quotes 
 
 ### Randomizing Mad libs
 
-
-
-### Randomizing Mad libs
-
 We can use the `shuf` command to randomize lists of items. For example
-`ls | shuf` randomizes the directory.
+`ls | shuf` randomizes the directory. (This was how I chose random backgrounds)
 
 We can combine this with a long list of nouns to create a random mad lib
 
@@ -113,11 +109,11 @@ We can combine this with a long list of nouns to create a random mad lib
 * [Verbs](https://raw.githubusercontent.com/janester/mad_libs/refs/heads/master/List%20of%20Verbs.txt)
 * [Adjectives](https://raw.githubusercontent.com/janester/mad_libs/refs/heads/master/List%20of%20Adjectives.txt)
 * [Adverbs](https://raw.githubusercontent.com/janester/mad_libs/refs/heads/master/List%20of%20Adverbs.txt)
-```
+```bash
 curl --silent https://gist.githubusercontent.com/trag1c/f74b2ab3589bc4ce5706f934616f6195/raw/5aa7de70fc83664017cb97dd02cbf6dc76b9e4a3/nouns.txt | shuf -n 1
 ```
 
-What is happening here? Three main things at play
+What is happening here? Three main things are at play
 * `curl`
     * curl gets the information from the web which in this case is a long list of nouns
     * `--silent` suppresses the output of grep so we just get the raw information. This is a flag on many commands
@@ -169,11 +165,14 @@ esac
 
 Notes
 * It is important to maintain spaces in your if statement brackets
+* Don't forget quotations when you are dealing with variables
+* Read error messages very carefully. Oftentimes you will have made a syntactical error but the interpreter
+* Be careful for redundancies in your code
+    * i.e you do not need to `echo "$(grep)"
+thinks you did something else.
 
-### Things to keep in mind
 
-If else and case statements
-The importants of quotes and spaces
-Read Error messages carefully
+Good luck with the lab and please ask questions!
+
 
 
